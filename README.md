@@ -1,4 +1,4 @@
-<h1 align="center"> 🙇‍♀️ DeepDive_Study 🙇‍  </h1>
+<h1 align="center"> 🙇‍♀️ DeepTypeScript_Study 🙇‍  </h1>
 
 
 <p align="center">
