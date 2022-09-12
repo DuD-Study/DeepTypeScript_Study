@@ -1,0 +1,13 @@
+1. 다음 객체에서 key의 type을 추출 할 수 있는 코드는 무엇인가?
+```js
+const obj = {a: 'jiwoo', b: 'hayoung', c:'jeongmin'} as const;
+```
+
+type C = keyof typeof obj; 
+
+2. 위 문제에서 value값만 가지고 오는 방법은?
+type Key = typeof obj[keyof typeof obj];
+3. 위 문제에서 as const 의 이유는?
+4. typeA = {hello: 'world'} & {zero: 'cho'}
+5. { hello: 'world', zero: 'cho'} 와의 차이?
+

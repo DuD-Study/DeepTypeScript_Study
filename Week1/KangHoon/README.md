@@ -17,3 +17,5 @@ const a: string = "abc" 과 같은 타입 선언은 문제의 여지가 있다.
    3.const tuple: [string, number]
 5. 4.잘못된 것 넣기
 
+as의 용법
+
