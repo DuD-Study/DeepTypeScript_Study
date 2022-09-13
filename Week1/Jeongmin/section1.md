@@ -96,12 +96,61 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 3. tsc --noEmi
 4. hello.ts --watch</pre>
 
-```typescript
-  class TypeScript implements Javascript {
-  #a: string;
-  protected b: string;
-}
-```
 </details>
 
 <br>
+
+
+<pre>5. lib.es5.d.ts를 보면 아래와 같이 매개변수에 변화를 주거나 타입에 변화를 주어 다른 버전의 같은 함수를 정의해 놓는 것을 뭐라고 하나요? </pre>
+
+```typescript
+    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: readonly T[]) => T): T;
+    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: readonly T[]) => T, initialValue: T): T;
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+  <strong>오버로딩(Overloading)</strong>
+  <pre>한줄에 타입정의 구현을 죽었다 깨어나도 못하는 경우에 사용하면 되시겠다.</pre>
+
+</details>
+
+<br>
+
+<pre>6. 객관식 맞쳐보세용 </pre>
+
+1. TypeScript에서 Arrow 함수 옳게 쓰인것은 무엇인가요? 
+```typescript
+   A. let sum = (x: number, y: number) => x + y;
+   B. let sum() = (x: number, y: number):number => x + y;
+   C. let sum = (x: number, y: number) => return x + y;
+   D. let sum:(x: number, y: number) => x + y;
+```
+
+<br>
+
+2. TypeScript에서 Tuple 옳게 쓴것은 무엇일까요?
+```typescript
+  A. var employee:[number, string] = [1, "Bill"];
+  B. var employee:[number | string] = [1, "Bill"];
+  C. var employee = [1, "Bill"];
+```
+
+<br>
+
+3. TypeScript에서 Union Type 옳게 쓴것은 무엇일까요?
+```typescript
+  A. var slave:[number, string] = [1, "Jeongmin"];
+  B. var slave:[number | string] = 456;
+  C. var slave:string[] = ["Bill"];
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+  <strong>1. A <br>2. A<br> 3. B</strong>
+
+</details>
