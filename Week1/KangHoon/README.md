@@ -7,15 +7,33 @@ const a: string = "abc" 과 같은 타입 선언은 문제의 여지가 있다.
 매개변수에는 반드시 타입을 붙여주는 것이 좋다. return 값은 매개변수의 타입값을 기반으로 타입 추론을 하기 떄문.<br>
 추론을 잘해주면 추론에 맡기자.
 
-## 
+interface = 객체지향 type = 마음대로 쓸 수 있다.
+interface는 같은이름으로 재지정 할 수 있어 확장성이 좋다.
 
-1. const A: number = 3
+잉여속성검사 
 
-2. 다음 중 타입 선언이 잘못 된 경우는?
-3. 1.type Greeting = `hello ${world}`
-4. 2.function rest(...arg: string[])
-   3.const tuple: [string, number]
-5. 4.잘못된 것 넣기
+void의 두가지 사용법
+1. 함수의 직접적인 return 값이 void인 경우에만 에러가난다.
+2. 매개 변수와 method에서는 크게 상관이없다 (return 값이 있어도 사용하지 않겠다는 뜻.)
 
-as의 용법
+as를 이용해 타입을 강제 변환 하는 법
 
+any 를 쓸 바에 unknown을 쓰자
+
+타입가드
+타입을 구분해주는 커스텀 함수를 직접 만들 수 있다. (is 가 들어감)
+is의 용법?
+
+빈객체 타입 = 모든타입
+Object 타입 = 모든타입 (null과 undefined 제외)
+
+인덱스드 시그니쳐 [key: string]: number
+class는 그자체로 타입이 될 수 있다.
+하지만 class를 타입으로 지정해 주게 되면 new A를 해야하고
+class의 타입을 잡아주는건 typeof 를 쓰면 된다.
+
+implements 
+private = 상속받았을 때 사용불가
+protected = 상속 받았을 때 사용 가능
+
+ 

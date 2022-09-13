@@ -8,6 +8,6 @@ type C = keyof typeof obj;
 2. 위 문제에서 value값만 가지고 오는 방법은?
 type Key = typeof obj[keyof typeof obj];
 3. 위 문제에서 as const 의 이유는?
-4. typeA = {hello: 'world'} & {zero: 'cho'}
-5. { hello: 'world', zero: 'cho'} 와의 차이?
+
+4.타입가드
 
