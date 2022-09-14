@@ -154,3 +154,33 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
   <strong>1. A <br>2. A<br> 3. B</strong>
 
 </details>
+
+<br>
+
+<pre>7. 아래 코드처럼 list 객체 키의 value들로 타입들로 만들어보세요.</pre>
+
+```typescript
+    // type members = 'jeongmin' | 'jiwoo' | 'kanghoon' | 'hayoung'
+    
+    const list = { a: 'jeongmin', b: 'jiwoo', c: 'kanghoon', d: 'hayoung' } as const 
+    type members = // type your code ;
+```
+<div align="center">
+  <details>
+    <summary>Hint</summary>
+    <pre>keyof 와 typeof 사용해보세요.</pre>
+  </details>
+</div>
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+  
+  ```typescript
+    const list = { a: 'jeongmin', b: 'jiwoo', c: 'kanghoon', d: 'hayoung' } as const 
+    type members = typeof list[keyof typeof list];
+  ``` 
+</details>
+
+<br>
