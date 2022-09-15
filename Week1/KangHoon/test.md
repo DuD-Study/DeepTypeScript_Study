@@ -11,3 +11,7 @@ type Key = typeof obj[keyof typeof obj];
 
 4.타입가드
 
+5.인터페이스 유니온
+
+6. 매개변수에 옵셔널 타입이 필수 타입 앞에 위치했을떄 문제점
+
