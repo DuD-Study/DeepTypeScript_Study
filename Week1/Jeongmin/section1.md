@@ -184,3 +184,86 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 </details>
 
 <br>
+
+<pre>8. 어떤 유틸리티 타입을 써야하는지 적어보시오.</pre>
+
+```typescript
+  // 1. application에 weight도 반드시 쓰게하도록 속성 변경할 수 있는
+  //    유틸리티 타입을 써서 수정해주세요. 
+    interface FormType{
+      email: string,
+      password: string
+      nickname: string
+      weight?: number
+    }
+
+    // 여기만 수정 
+    const application: FormType = {
+      password: 'muscleKing44'
+      email: 'IlsanKing@gmail.com'
+      nickname: 'handsomehoon'
+    }
+
+    // 2. null과 undefined만 에러가 나게끔 아래 함수를 타이핑해주세요.
+    
+    ype PrimitiveT = string | number  | null | undefined  
+
+    // 여기만 수정하면됨 
+    function print(a){
+        console.log(a);
+    }
+
+    print('2')
+    print(2)
+    print(null)  // Argument of type 'null' is not assignable to parameter of type     
+    print(undefined) // Argument of type 'undefined' is not assignable to parameter of type  
+    
+    
+    // 3. adminUsers에 jeongmin만 허용되게끔 타이핑을 하고싶다.
+    //    Admin, User 타입을 사용해서 타이핑을 해보자 ~  
+    interface User {
+      id: number;
+      firstname: string;
+      lastname: string;
+      age?: number;
+    }
+
+    type Admin = 'jeongmin'
+
+    const adminUsers: ???? = {
+      jeongmin : { id: 1, firstname: 'jeongmin', lastname: 'lee', age: 26 },
+      jiwoo : { id: 2, firstname: 'jiwoo', lastname: 'park', age: 24 },
+      kanghoon : { id: 3, firstname: 'kanghoon', lastname: 'jo', age: 28 },
+      hayoung : { id: 4, firstname: 'hayoung', lastname: 'park', age: 24 },
+    };
+```
+<br>
+
+<details>
+  <summary>Solution</summary>
+  
+  ```typescript
+    // 1번 정답
+    const application: Required<FormType> = {
+      password: 'muscleKing44',
+      email: 'IlsanKing@gmail.com',
+      nickname: 'handsomehoon',
+      weight: 131
+    }
+
+    // 2번 정답 
+    function print(a: NonNullable<PrimitiveT>){
+        console.log(a);
+    }
+
+    // 3번 정답
+    const adminUsers: Record<Admin, User> = {
+      jeongmin : { id: 1, firstname: 'jeongmin', lastname: 'lee', age: 26 },
+      jiwoo : { id: 2, firstname: 'jiwoo', lastname: 'park', age: 24 },
+      kanghoon : { id: 3, firstname: 'kanghoon', lastname: 'jo', age: 28 },
+      hayoung : { id: 4, firstname: 'hayoung', lastname: 'park', age: 24 },
+    };
+  ``` 
+</details>
+
+<br>
