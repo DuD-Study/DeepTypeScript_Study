@@ -267,3 +267,66 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 </details>
 
 <br>
+
+<pre>9. 타입가드를 넣어주세요. </pre>
+
+```typescript
+// 1번 타입가드 해보즈아..
+  class 코딩하기 {
+  coding()  {console.log('죽을맛이노'); }
+  }
+  class 폭식하기 {
+    eating() {console.log('이맛에사노'); }
+  }
+  function doThis(arg) {
+    // 타입가드해서 둘다 하나씩 나와야겠죠? 
+  }
+  doThis(new 코딩하기());
+  doThis(new 폭식하기());
+
+
+  // 2번 커스텀 타입 가드 함수를 만들어보자 ~ 
+  interface Hogang {
+    ptMember: boolean;
+    normalMember: boolean;
+    name: string;
+  }
+
+  interface Gang {
+    normalMember: boolean;
+    name: string;
+  }
+
+  function isPTHogang(){
+    
+  }
+
+  function doCheck(arg: Hogang | Gang) {
+    if(isPTHogang(arg)) console.log(`안녕하세요 ${arg.name}님!!!`)
+    else console.log('..안녕하세요')
+  }
+
+  doCheck({ ptMember: true, normalMember: true, name: '정민' });
+  doCheck({ normalMember: true, name: '강훈' });
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+  
+  ```typescript
+  // 1번 정답 
+  function doThis(arg) {
+  if (arg instanceof 코딩하기) arg.coding();
+  else arg.eating();
+  }
+
+  //2번 정답
+   function isPTHogang(arg: any): arg is Hogang {
+    return arg.ptMember !== undefined;
+  }
+  ```
+</details>
+
+<br>
