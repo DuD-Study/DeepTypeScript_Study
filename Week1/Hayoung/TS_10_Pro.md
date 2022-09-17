@@ -130,7 +130,15 @@ const check: string = `5`;
 
 <br>
 
-<pre> 9.  </pre>
+<pre> 9. 다음 타입스크립트 코드를 에러가 나지 않게 완성시켜보아라. </pre>
+
+```typescript
+type amateur = { hardcoding: true };
+type junior = amateur & { shortcut: true };
+type senior = junior & { imaginecoding: true };
+
+const 조강훈: senior = {};
+```
 
 <br>
 
@@ -142,7 +150,22 @@ const check: string = `5`;
 
 <br>
 
-<pre> 10.  </pre>
+<pre> 10. 지우는 다음 타입스크립트 코드에서 변수 checkcheck의 리턴값으로 숫자 1004를 받고 싶다. 
+지우는 코드를 어떻게 수정해주어야 다음 코드로부터 원하는 리턴값을 받을 수 있을까? </pre>
+
+힌트) 현재 변수 checkcheck의 리턴값은 void이다.
+
+```typescript
+interface check {
+  checking: () => void;
+}
+
+const test : check = {
+  checking() = { return 1004; }
+}
+
+const checkcheck = test.checking();
+```
 
 <br>
 
