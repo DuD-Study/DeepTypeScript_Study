@@ -60,3 +60,15 @@ extends로 제한한다.
 같은함수 타입이 2번 선언되어있는거
 
 partial의 사용은 지양하자~!
+유틸리티타입
+Partial 부분적으로 사용가능
+Pick 뽑아내서 사용
+Omit 제외하고 사용
+Exclude 빼고 사용
+Extract 
+
+infer
+extends에서만 사용 가능
+추론해주는 놈임
+
+Promise<결과값>
