@@ -170,31 +170,31 @@ const i: unknown = null;
 
 <br>
 
-<!-- <pre>7. 공변성과 반공변성</pre>
+<pre>7. 에러가 발생하는 곳의 번호를 고르세요.</pre>
 
 ```js
 function a(x: number | string): number {
   return +x;
 }
 type B = (x: string) => number;
-let b: B = a; // ✅
+let b: B = a; // 1️⃣
 
 function c(x: string): number {
   return +x;
 }
 type D = (x: number | string) => number;
-let d: D = c; // ❌
+let d: D = c; // 2️⃣
 ```
 
 <br>
 
 <details>
   <summary>Solution</summary>
-  <strong></strong>
-  <p></p>
+  <strong>2️⃣</strong>
+  <p>기본적으로 타입 호환은 오른쪽에 있는 타입이 더 많은 속성 및 구조적으로 더 크면 왼쪽과 호환이 된다.</p>
 </details>
 
-<br> -->
+<br>
 
 <pre>8. Pick을 사용자 정의 타입으로 구현하세요.</pre>
 
@@ -204,7 +204,10 @@ interface Profile {
   age: number;
   married: boolean;
 }
-const user: Pick<Profile, "name" | "age"> = {
+
+// type P 정의
+
+const user: P<Profile, "name" | "age"> = {
   name: "jiwoo",
   age: 24,
 };
@@ -222,6 +225,83 @@ type P<T,S extends keyof T> = {
 const user:P<Profile,'name'|'age'> = {
   name: "jiwoo",
   age: 24
+}
+```
+
+</details>
+
+<br>
+
+<pre>9. 타입에 해당하는 값을 할당하세요.</pre>
+
+```js
+interface Profile {
+  name: string;
+  age: number;
+  married: boolean;
+}
+
+type A = Extract<keyof Profile, 'married'>;
+type B = Exclude<keyof Profile, 'age'>;
+type C = Pick<Profile,'married'>;
+type D = Omit<Profile,'married'>;
+
+const a:A = // 1.
+const b:B = // 2.
+const c:C = // 3.
+const d:D = // 4.
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+
+```js
+type A = 'married';
+type B = 'name' | 'married'
+type C = { married: boolean; }
+type D = { name: string; age: number; }
+
+const a:A = 'married';
+const b:B = 'name'; or // 'married'
+const c:C = { married: false }
+const d:D = { name: 'zooyaho'; age: 24; }
+```
+
+</details>
+
+<br>
+
+<pre>10. 코드를 보고 타입 R을 정의하세요.</pre>
+
+```js
+interface Profile {
+  readonly name?: string;
+  readonly age?: number;
+  readonly married?: boolean;
+}
+
+type R<T> = {
+  // 작성
+}
+
+const user: R<Profile> = {
+  name: "jiwoo",
+  age: 24,
+  married: false,
+};
+user.age = 25;
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+
+```js
+type R<T> = {
+  -readonly [key in keyof T]-? : T[key];
 }
 ```
 
