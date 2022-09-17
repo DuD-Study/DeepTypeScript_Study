@@ -2,27 +2,17 @@
 
 <br>
 
-
 <pre>1. 다음 각 변수들에 커서를 올리면 타입 추론이 어떻게 나올까요? </pre>
 
 ```typescript
-  type c = string & number;   // 1.
+type c = string & number; // 1.
 
-  function func (a: string, b: number, c:boolean) { 
-    return a+b+c;
-  } // 2.
+function func(a: string, b: number, c: boolean) {
+  return a + b + c;
+} // 2.
 
-  let something = [0, 1, null]; // 3.
+let something = [0, 1, null]; // 3.
 ```
-
-<br>
-
-<details>
-  <summary>Solution</summary>
-  <pre>1번 같은 경우는 string과 number를 intersection은 불가능하므로 타입 추론결과 never가 나온다.<br>
-2번은 매개변수가 다양한 타입으로 들어오고 '+' 연산자를 써 주었는데, 이렇게 되면 문자열로 암묵적으로 타입변환으로 일어나 반환 타입이 string으로 잡힌다.<br>
-3번은 말그대로 숫자와 null이 같이 있는 배열이니 number | null[]</pre>
-</details>
 
 <br>
 
@@ -34,17 +24,9 @@ type A = { firstName: string };
 //Type '{ firstName: 'Jeongmin', lastName: 'Lee' }' is not assignable to type 'A'.
 const a: A = { firstName: 'Jeongmin', lastName: 'Lee' };
 
-
 const b = { firstName: 'Jeongmin', lastName: 'Lee' };
 const c: A = b;
 ```
-
-<br>
-
-<details>
-  <summary>Solution</summary>
-  <strong>잉여 속성 검사</strong>
-</details>
 
 <br>
 
@@ -60,23 +42,6 @@ class TypeScript implements Javascript {
 
 <br>
 
-<details>
-  <summary>Solution</summary>
-  <pre>private와 protected는 공통적으로 클래스 내부에서 사용할 수 있고 인스턴스에서 사용을 못하지만, 
-pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가능하다.
-그리고 private 대신에 앞에 '#' prefix를 통해 private 필드 선언이 가능하다.</pre>
-
-```typescript
-  class TypeScript implements Javascript {
-  #a: string;
-  protected b: string;
-}
-```
-</details>
-
-<br>
-
-
 <pre>4. 다음 해당하는 커맨드를 입력해보세요. </pre>
 
 <br>
@@ -86,20 +51,7 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 3. 타입 검사만 하고 싶다면 -> <code>??? ????????</code> <br>
 4. hello.ts라는 파일 실시간을 컴파일하고 싶을때 -> <code>?????? ????????</code>
 
-
 <br>
-
-<details>
-  <summary>Solution</summary>
-  <pre>1. npx tsc hello.ts
-2. npx tsc -init
-3. tsc --noEmi
-4. hello.ts --watch</pre>
-
-</details>
-
-<br>
-
 
 <pre>5. lib.es5.d.ts를 보면 아래와 같이 매개변수에 변화를 주거나 타입에 변화를 주어 다른 버전의 같은 함수를 정의해 놓는 것을 뭐라고 하나요? </pre>
 
@@ -110,18 +62,10 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 
 <br>
 
-<details>
-  <summary>Solution</summary>
-  <strong>오버로딩(Overloading)</strong>
-  <pre>한줄에 타입정의 구현을 죽었다 깨어나도 못하는 경우에 사용하면 되시겠다.</pre>
-
-</details>
-
-<br>
-
 <pre>6. 객관식 맞쳐보세용 </pre>
 
-1. TypeScript에서 Arrow 함수 옳게 쓰인것은 무엇인가요? 
+1. TypeScript에서 Arrow 함수 옳게 쓰인것은 무엇인가요?
+
 ```typescript
    A. let sum = (x: number, y: number) => x + y;
    B. let sum() = (x: number, y: number):number => x + y;
@@ -132,6 +76,7 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 <br>
 
 2. TypeScript에서 Tuple 옳게 쓴것은 무엇일까요?
+
 ```typescript
   A. var employee:[number, string] = [1, "Bill"];
   B. var employee:[number | string] = [1, "Bill"];
@@ -141,6 +86,7 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 <br>
 
 3. TypeScript에서 Union Type 옳게 쓴것은 무엇일까요?
+
 ```typescript
   A. var slave:[number, string] = [1, "Jeongmin"];
   B. var slave:[number | string] = 456;
@@ -149,22 +95,15 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 
 <br>
 
-<details>
-  <summary>Solution</summary>
-  <strong>1. A <br>2. A<br> 3. B</strong>
-
-</details>
-
-<br>
-
 <pre>7. 아래 코드처럼 list 객체 키의 value들로 타입들로 만들어보세요.</pre>
 
 ```typescript
     // type members = 'jeongmin' | 'jiwoo' | 'kanghoon' | 'hayoung'
-    
-    const list = { a: 'jeongmin', b: 'jiwoo', c: 'kanghoon', d: 'hayoung' } as const 
+
+    const list = { a: 'jeongmin', b: 'jiwoo', c: 'kanghoon', d: 'hayoung' } as const
     type members = // type your code ;
 ```
+
 <div align="center">
   <details>
     <summary>Hint</summary>
@@ -174,22 +113,11 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 
 <br>
 
-<details>
-  <summary>Solution</summary>
-  
-  ```typescript
-    const list = { a: 'jeongmin', b: 'jiwoo', c: 'kanghoon', d: 'hayoung' } as const 
-    type members = typeof list[keyof typeof list];
-  ``` 
-</details>
-
-<br>
-
 <pre>8. 어떤 유틸리티 타입을 써야하는지 적어보시오.</pre>
 
 ```typescript
   // 1. application에 weight도 반드시 쓰게하도록 속성 변경할 수 있는
-  //    유틸리티 타입을 써서 수정해주세요. 
+  //    유틸리티 타입을 써서 수정해주세요.
     interface FormType{
       email: string,
       password: string
@@ -197,7 +125,7 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
       weight?: number
     }
 
-    // 여기만 수정 
+    // 여기만 수정
     const application: FormType = {
       password: 'muscleKing44'
       email: 'IlsanKing@gmail.com'
@@ -205,22 +133,22 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
     }
 
     // 2. null과 undefined만 에러가 나게끔 아래 함수를 타이핑해주세요.
-    
-    ype PrimitiveT = string | number  | null | undefined  
 
-    // 여기만 수정하면됨 
+    ype PrimitiveT = string | number  | null | undefined
+
+    // 여기만 수정하면됨
     function print(a){
         console.log(a);
     }
 
     print('2')
     print(2)
-    print(null)  // Argument of type 'null' is not assignable to parameter of type     
-    print(undefined) // Argument of type 'undefined' is not assignable to parameter of type  
-    
-    
+    print(null)  // Argument of type 'null' is not assignable to parameter of type
+    print(undefined) // Argument of type 'undefined' is not assignable to parameter of type
+
+
     // 3. adminUsers에 jeongmin만 허용되게끔 타이핑을 하고싶다.
-    //    Admin, User 타입을 사용해서 타이핑을 해보자 ~  
+    //    Admin, User 타입을 사용해서 타이핑을 해보자 ~
     interface User {
       id: number;
       firstname: string;
@@ -237,34 +165,6 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
       hayoung : { id: 4, firstname: 'hayoung', lastname: 'park', age: 24 },
     };
 ```
-<br>
-
-<details>
-  <summary>Solution</summary>
-  
-  ```typescript
-    // 1번 정답
-    const application: Required<FormType> = {
-      password: 'muscleKing44',
-      email: 'IlsanKing@gmail.com',
-      nickname: 'handsomehoon',
-      weight: 131
-    }
-
-    // 2번 정답 
-    function print(a: NonNullable<PrimitiveT>){
-        console.log(a);
-    }
-
-    // 3번 정답
-    const adminUsers: Record<Admin, User> = {
-      jeongmin : { id: 1, firstname: 'jeongmin', lastname: 'lee', age: 26 },
-      jiwoo : { id: 2, firstname: 'jiwoo', lastname: 'park', age: 24 },
-      kanghoon : { id: 3, firstname: 'kanghoon', lastname: 'jo', age: 28 },
-      hayoung : { id: 4, firstname: 'hayoung', lastname: 'park', age: 24 },
-    };
-  ``` 
-</details>
 
 <br>
 
@@ -272,61 +172,95 @@ pretected 클래스를 부모로써 상속받은 클래스만은 접근이 가�
 
 ```typescript
 // 1번 타입가드 해보즈아..
-  class 코딩하기 {
-  coding()  {console.log('죽을맛이노'); }
+class 코딩하기 {
+  coding() {
+    console.log('죽을맛이노');
   }
-  class 폭식하기 {
-    eating() {console.log('이맛에사노'); }
+}
+class 폭식하기 {
+  eating() {
+    console.log('이맛에사노');
   }
-  function doThis(arg) {
-    // 타입가드해서 둘다 하나씩 나와야겠죠? 
-  }
-  doThis(new 코딩하기());
-  doThis(new 폭식하기());
+}
+function doThis(arg) {
+  // 타입가드해서 둘다 하나씩 나와야겠죠?
+}
+doThis(new 코딩하기());
+doThis(new 폭식하기());
 
+// 2번 커스텀 타입 가드 함수를 만들어보자 ~
+interface Hogang {
+  ptMember: boolean;
+  normalMember: boolean;
+  name: string;
+}
 
-  // 2번 커스텀 타입 가드 함수를 만들어보자 ~ 
-  interface Hogang {
-    ptMember: boolean;
-    normalMember: boolean;
-    name: string;
-  }
+interface Gang {
+  normalMember: boolean;
+  name: string;
+}
 
-  interface Gang {
-    normalMember: boolean;
-    name: string;
-  }
+function isPTHogang() {}
 
-  function isPTHogang(){
-    
-  }
+function doCheck(arg: Hogang | Gang) {
+  if (isPTHogang(arg)) console.log(`안녕하세요 ${arg.name}님!!!`);
+  else console.log('..안녕하세요');
+}
 
-  function doCheck(arg: Hogang | Gang) {
-    if(isPTHogang(arg)) console.log(`안녕하세요 ${arg.name}님!!!`)
-    else console.log('..안녕하세요')
-  }
-
-  doCheck({ ptMember: true, normalMember: true, name: '정민' });
-  doCheck({ normalMember: true, name: '강훈' });
+doCheck({ ptMember: true, normalMember: true, name: '정민' });
+doCheck({ normalMember: true, name: '강훈' });
 ```
 
 <br>
 
 <details>
   <summary>Solution</summary>
-  
-  ```typescript
-  // 1번 정답 
-  function doThis(arg) {
+
+```typescript
+// 1번 정답
+function doThis(arg) {
   if (arg instanceof 코딩하기) arg.coding();
   else arg.eating();
-  }
+}
 
-  //2번 정답
-   function isPTHogang(arg: any): arg is Hogang {
-    return arg.ptMember !== undefined;
-  }
-  ```
+//2번 정답
+function isPTHogang(arg: any): arg is Hogang {
+  return arg.ptMember !== undefined;
+}
+```
+
+</details>
+
+<br>
+
+<pre>10. any와 unknown의 차이점을 적어봅시다.
+
+1. 타입 검사시의 차이점 :
+
+2. 다른 타입에 할당 시의 차이점 :</pre>
+<br>
+
+<details>
+  <summary>Solution</summary>
+
+<pre>1. any는 타입 검사를 느슨하게하기 때문에 그냥 넘어가지만,
+    unknown같은 경우 컴파일러가 타입을 짚고 넘어가야한다고 에러가 납니다.
+
+2. any는 어떤 타입에다가도 할당이 가능하지만,
+   unknown은 어떤 Type Assertion (e.g <> or as)나 혹은 Type Narrowing(e.g 타입 가드)을 통한
+   타입이 확정 되어야 할당이 가능합니다.</pre>
+
+```typescript
+let vAny: any = 10; // any 타입에는 어떤 것이든 할당 가능합니다.
+let vUnknown: unknown = 10; // unknown 타입에는 어떤 것이든 할당 가능합니다.
+
+let s1: string = vAny; // Any타입은 다른 어떤 타입에서도 할당 가능.
+let s2: string = vUnknown; // 명확한 Type Assertion없이는 불가능.
+
+vAny.method(); // any는 가능
+vUnknown.method(); // 이 변수 타입에 대해 아는 것이 없기 때문에 실행 안됨.
+```
+
 </details>
 
 <br>
