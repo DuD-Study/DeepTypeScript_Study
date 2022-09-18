@@ -54,7 +54,7 @@ let b:B = a;
 ```
 
 
-9.
+9. 아래와 같은 선언문이 있을 때, user 객체를 인자로 받아 반환하는 함수를 화살표 함수 및 제네릭 타입을 이용하여 선언해보세요
 ```ts
 type User = {
 name: string;
@@ -65,14 +65,7 @@ const user: User = {
 name: "조강훈",
 age: 28
 };
-
-function me = <T>(user: T): T {
-return user;
-};
 ```
 
-10. 오버로딩
-11. Exclude/Extract 와 Pick/Omit의 차이
-
-12. INFER
+10. Infer 키워드를 사용하여 ts에서 제공하는 ReturnType의 타입을 정의해보세요.
 
