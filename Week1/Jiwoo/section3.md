@@ -2,7 +2,7 @@
 
 <br>
 
-<pre>1. Pick을 사용자 정의 타입으로 구현하세요.</pre>
+<pre>1. Pick을 사용자 정의 P 타입으로 구현하세요.</pre>
 
 ```js
 interface Profile {
@@ -79,7 +79,7 @@ const d:D = { name: 'zooyaho'; age: 24; }
 
 <br>
 
-<pre>3. 코드를 보고 타입 R을 정의하세요.</pre>
+<pre>3. 코드를 보고 타입 R을 정의하세요.(name, age, married는 필수 속성입니다)</pre>
 
 ```js
 interface Profile {
