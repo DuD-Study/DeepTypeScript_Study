@@ -19,7 +19,7 @@ type Res2 = never & string; // 2.
 
 <br>
 
-<pre>2. enum으로 설정한 타입을 객체로 변경하고, ODirection타입인 객체를 인자로 받는 함수를 생성하세요.</pre>
+<pre>2. ODirection 객체를 이용하여 EDirection과 같은 Direction타입을 만들어 해당 출력값이 나오도록 하세요.</pre>
 
 ```js
 const enum EDirection {
@@ -29,17 +29,22 @@ const enum EDirection {
   RIGHT
 }
 
-function walk(dir: EDirection ){}
-walk(EDirection.UP);
+// ODirection 객체 생성
+// Direction 타입 생성
+
+function walk(dir: Direction ){
+  console.log(dir); // 3
+}
+walk(EDirection.RIGHT);
 ```
 
 <br>
 
 <details>
   <summary>Solution</summary>
-  <strong></strong>
-  <pre>
-  const ODirection = {
+
+```js
+const ODirection = {
     UP: 0,
     DOWN: 1,
     LEFT: 2,
@@ -48,11 +53,12 @@ walk(EDirection.UP);
 
 type Direction = typeof ODirection[ keyof typeof ODirection];
 
-function run(dir: Direction) {}
-run(ODirection.UP);
+function run(dir: Direction) {
+  console.log(dir);
+}
+run(ODirection.RIGHT);
+```
 
-  </pre>
-  <p></p>
 </details>
 
 <br>
@@ -72,7 +78,7 @@ const user: Person = { name: "Mark", age: 25, gender: "F" }; // error
 
 <details>
   <summary>Solution</summary>
-  <strong>error발생 원인은 user에 객체 리터럴을 대입하여 잉여 속성 체크가 발생한 것이다. 이때 할당가능 검사는 통과 하였지만 잉여 속성 체크는 통과하지 못했다. 그러므로 obj변수에 값 할당 후 user에 대입하면 할당 가능 검사만 체크하여 통과하게되어 error가 발생하지 않는다.</strong>
+  <strong>error발생 원인은 user에 객체 리터럴을 대입하여 잉여 속성 체크가 발생한 것이다. 이때 할당가능 검사는 통과 하였지만 잉여 속성 체크는 통과하지 못했다. 그러므로 obj변수에 값 할당 후 user에 대입하면 할당 가능 검사만 체크하여 통과하게되어 error가 발생하지 않는다.(객체 리터럴을 직접 대입하지 않았기때문)</strong>
   <pre>
   const obj = { name: "Mark", age: 25, gender: "F" }
   const user: Person = obj;
@@ -169,3 +175,26 @@ const i: unknown = null;
 </details>
 
 <br>
+
+<pre>7. A타입을 인덱스드 시그니처를 사용하여 정의하세요.</pre>
+
+```js
+// A타입 정의
+const obj: A = {
+  a: 123,
+  2: 2,
+};
+```
+
+<br>
+
+<details>
+  <summary>Solution</summary>
+
+```js
+type A = {
+  [key: string]: number,
+};
+```
+
+</details>
